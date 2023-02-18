@@ -1,0 +1,51 @@
+.personalNews{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0px ;
+    position: relative;
+
+}
+.img{
+    width: 17%;
+}
+.img img{
+    width: 180px;
+    height: 108px;
+}
+.detail{
+    padding-left: 10px;
+    width: 80%;
+}
+.detail h3{
+    margin: 0 0 6px;
+}
+.time{
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.personalNews:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+.p{
+    font-size: 0.9rem;
+    margin: 5px 0 0;
+    color: #888;
+}
+.button{
+    position: absolute;
+    right:0;
+    top: 0;
+    border: none;
+    background-color: #888;
+    
+    box-shadow: 0 4px 8px gray;
+    transition: all .25s ease-in;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: red;
+    transition: all .25s ease-in;
+}

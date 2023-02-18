@@ -1,0 +1,47 @@
+.content-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 1200px;
+    margin-top: 3rem;
+}
+.contentMap{
+    background-color: white;
+    z-index: 2;
+}
+.pagination{
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    gap:5px;
+    list-style: none;
+    z-index: 2;
+}
+
+.pagination,
+.page-num{
+    padding: 8px 15px;
+    color: black;
+    border-radius: 3px;
+    font-weight: 400;
+    
+}
+.page-num a{
+    color: black;
+}
+.page-num{
+    cursor: pointer;
+}
+.page-num:hover{
+    background-color: white;
+    padding: 5px 15px;
+    border-radius: 3px;
+}
+
+.active{
+    background-color: white;
+    padding: 5px 15px;
+    border-radius: 3px;
+}

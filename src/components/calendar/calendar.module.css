@@ -1,0 +1,9 @@
+.calendar{
+    position: fixed;
+   top: 10rem;
+   left: 4rem;
+   right: 0px;
+   bottom: 0px;
+   width: 250px;
+   height: 250px;
+}
