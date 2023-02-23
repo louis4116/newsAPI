@@ -5,6 +5,7 @@ import { addDoc,collection,doc,deleteDoc} from "firebase/firestore";
 
 export const setFirebaseDataTEST=async({
     title,description,publishedAt,url,urlToImage,currentUser})=>{
+        
         try{
             await addDoc(collection(db,`${currentUser}`),{
             title:title,

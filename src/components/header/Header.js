@@ -42,7 +42,11 @@ const Header = () => {
   }
   
   useEffect(()=>{
-    dispatch(fetchNewsData({input:"台灣",now:startDate}));
+    let date=startDate.getDate();
+    let month=startDate.getMonth()+1;
+    let year=startDate.getFullYear();
+    let now=year+"-"+month+"-"+date;
+    dispatch(fetchNewsData({input:"台灣",now:now}));
     dispatch(dataAction.initialReducer());
     
   },[])

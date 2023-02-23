@@ -50,7 +50,7 @@ const ContentItem = (props) => {
         
         <p className={classes.p}>內容:{description}</p>
         </div>
-        <ControlPoint className={classes.button} onClick={addItemToFB}/>
+        {!currentUser?"":<ControlPoint className={classes.button} onClick={addItemToFB}/>}
         
     </div>
     
