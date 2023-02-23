@@ -3,6 +3,10 @@
 本次專案串接了News API與firebase CLI，主要功能可以將自己所想要的新聞或是文章存入自己的帳戶 
 並且根據帳戶的不同來顯示各自帳戶所儲存的新聞
 
+### 主要技術
+redux-thunk來串接newsAPI和firebaseCLI、custom-hook來判斷使用者是否登入、react-router-dom來進行換頁跳轉
+、CSS module來撰寫CSS、react-hook-form來製作表單
+
 ## 首頁
 
 ![image](https://github.com/louis4116/picuture/blob/main/%E9%A6%96%E9%A0%81.png)
