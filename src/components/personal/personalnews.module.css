@@ -40,7 +40,6 @@
     top: 0;
     border: none;
     background-color: #888;
-    
     box-shadow: 0 4px 8px gray;
     transition: all .25s ease-in;
     cursor: pointer;

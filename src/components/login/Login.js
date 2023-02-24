@@ -2,8 +2,7 @@ import React from 'react'
 import { useForm }  from "react-hook-form";
 import { loginAccount } from '../../server/account';
 import { useNavigate } from 'react-router-dom';
-import classes from "./login.module.css"
-
+import classes from "./login.module.scss"
 
 const Login = () => {
     const {register,handleSubmit,reset,formState:{errors}}=useForm();
@@ -17,12 +16,11 @@ const Login = () => {
   return (
     <form className={classes.login} onSubmit={handleSubmit(submitHanlder)}>
       <div className={classes['login-container']}>
-      <div className={classes['login-content']}>
+      <div className={classes['login-email-content']}>
       <input
               type="email"
               id='email'
-              placeholder="帳號"
-              className={classes['login-content-input']} 
+              placeholder="帳號" 
               {...register("email", {
                 required: "請輸入電子郵件",
                 pattern: {
@@ -30,14 +28,13 @@ const Login = () => {
                   message: "請輸入正確的電子郵件",
                 },
               })}/>
-        <label htmlFor='email' className={classes['login-content-label']} >帳號</label>
+        <label htmlFor='email' className={classes['login-email-content-label']} >帳號</label>
         
       </div>
-      <div className={classes['login-content']}>
+      <div className={classes['login-password-content']}>
         <input 
         type="password" 
         id='password' 
-        className={classes['login-content-input']} 
         placeholder="密碼"
         {...register("password",{
           required:"請輸入密碼",
@@ -51,8 +48,7 @@ const Login = () => {
                 <p>{errors.password.message}</p>
               </div>
             )}
-        <label htmlFor='password' className={classes['login-content-label']}  
-      >密碼</label>
+        <label htmlFor='password' className={classes['login-password-content-label']}>密碼</label>
       </div>
         <button className={classes['login-button']} >登入</button>
       </div>
