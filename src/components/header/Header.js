@@ -11,6 +11,7 @@ import Calendar from '../calendar/Calendar';
 import classes from "./header.module.css";
 const Header = () => {
   const [startDate, setStartDate] = useState(new Date());
+  const [yesterdayDate,setYesterdayDate]=useState(new Date());
   const [input,setInput]=useState("");
   const dispatch=useDispatch();
   const navigate=useNavigate();
@@ -32,7 +33,6 @@ const Header = () => {
   
   const searchHandler=(e)=>{
     e.preventDefault();
-    
     let date=startDate.getDate();
     let month=startDate.getMonth()+1;
     let year=startDate.getFullYear();
@@ -44,12 +44,15 @@ const Header = () => {
   
   useEffect(()=>{
     let date=startDate.getDate();
-    let yesterday=startDate.getDate()-1;
     let month=startDate.getMonth()+1;
     let year=startDate.getFullYear();
+    setYesterdayDate(yesterdayDate.setDate(yesterdayDate.getDate()-2));
+    let yesterdayDay=yesterdayDate.getDate();
+    let yesterdayMonth=yesterdayDate.getMonth()+1;
+    let yesterdayYear=yesterdayDate.getFullYear();
     let now =year+"-"+month+"-"+date;
-    let before=year+"-"+month+"-"+yesterday;
-    dispatch(fetchNewsData({input:"台灣",now:now,before:before}));
+    let yesterday=yesterdayYear+"-"+yesterdayMonth+"-"+yesterdayDay;
+    dispatch(fetchNewsData({input:"台灣",now:now,yesterday:yesterday}));
     dispatch(dataAction.initialReducer());
     
   },[])

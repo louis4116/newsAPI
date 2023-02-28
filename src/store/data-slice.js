@@ -2,15 +2,15 @@ import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState ={fetchContent:[],totalResult:""};
 
-export const fetchNewsData=createAsyncThunk("data/fetchNewsData",async({input,now,before})=>{
-    console.log(input,now,before)
+export const fetchNewsData=createAsyncThunk("data/fetchNewsData",async({input,now,yesterday})=>{
+    console.log(input,now,yesterday)
     let fetchData
-    if(!before){
+    if(!yesterday){
         fetchData= await fetch(`https://newsapi.org/v2/everything?q=${input}&from=${now}&to=${now}&sortBy=relevancy&apiKey=${process.env.REACT_APP_API_KEY}`,{
             method:"GET"
         });
     }else{  
-         fetchData= await fetch(`https://newsapi.org/v2/everything?q=${input}&from=${before}&to=${now}&sortBy=relevancy&apiKey=${process.env.REACT_APP_API_KEY}`,{
+         fetchData= await fetch(`https://newsapi.org/v2/everything?q=${input}&from=${yesterday}&to=${now}&sortBy=relevancy&apiKey=${process.env.REACT_APP_API_KEY}`,{
             method:"GET"
         });
     }
