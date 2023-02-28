@@ -2,11 +2,19 @@ import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState ={fetchContent:[],totalResult:""};
 
-export const fetchNewsData=createAsyncThunk("data/fetchNewsData",async({input,now})=>{
-    console.log(input,now)
-    const fetchData= await fetch(`https://newsapi.org/v2/everything?q=${input}&from=${now}&to=${now}&sortBy=relevancy&apiKey=${process.env.REACT_APP_API_KEY}`,{
-        method:"GET"
-    });
+export const fetchNewsData=createAsyncThunk("data/fetchNewsData",async({input,now,before})=>{
+    console.log(input,now,before)
+    let fetchData
+    if(!before){
+        fetchData= await fetch(`https://newsapi.org/v2/everything?q=${input}&from=${now}&to=${now}&sortBy=relevancy&apiKey=${process.env.REACT_APP_API_KEY}`,{
+            method:"GET"
+        });
+    }else{  
+         fetchData= await fetch(`https://newsapi.org/v2/everything?q=${input}&from=${before}&to=${now}&sortBy=relevancy&apiKey=${process.env.REACT_APP_API_KEY}`,{
+            method:"GET"
+        });
+    }
+    
     const fetchResult= await fetchData.json();
     console.log(fetchResult)
     return fetchResult;

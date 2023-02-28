@@ -1,6 +1,6 @@
 import { db } from "./server";
 import { addDoc,collection,doc,deleteDoc} from "firebase/firestore";
-
+import Swal from "sweetalert2";
 
 
 export const setFirebaseDataTEST=async({
@@ -15,7 +15,12 @@ export const setFirebaseDataTEST=async({
             urlToImage:urlToImage
         });
         }catch(e){
-            alert(e)
+            throw Error( Swal.fire({
+                title: "失敗!!",
+                text: `${e}`,
+                icon: "error",
+                confirmButtonText: "關閉",
+              }))
         }
         
 }
@@ -23,5 +28,15 @@ export const setFirebaseDataTEST=async({
 
 
 export const deleteFirebaseData=async({idName,uid})=>{
-    await deleteDoc(doc(db,`${uid}`,`${idName}`));
+    try{
+        await deleteDoc(doc(db,`${uid}`,`${idName}`));
+    }catch(e){
+        throw Error( Swal.fire({
+            title: "失敗!!",
+            text: `${e}`,
+            icon: "error",
+            confirmButtonText: "關閉",
+          }))
+    }
+    
 };

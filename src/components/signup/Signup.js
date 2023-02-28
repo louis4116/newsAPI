@@ -10,7 +10,7 @@ const Signup = () => {
         creatAccount({username:username,email:email,password:password})
         .then(()=>reset())
         .then(()=>navigate("/"))
-        .catch((e)=>alert(e))
+        .catch((e)=>console.log(e))
     }
   return (
     <>

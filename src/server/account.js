@@ -4,7 +4,6 @@ import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import Swal from "sweetalert2";
 
 
-
 export const creatAccount=async({username,email,password})=>{
    console.log(username,email,password)
     try{
@@ -13,7 +12,12 @@ export const creatAccount=async({username,email,password})=>{
             displayName: username
           })
     }catch(e){
-        console.log(e);
+        throw Error( Swal.fire({
+            title: "失敗!!",
+            text: `${e}`,
+            icon: "error",
+            confirmButtonText: "關閉",
+          }))
     }
 };
 

@@ -32,6 +32,7 @@ const Header = () => {
   
   const searchHandler=(e)=>{
     e.preventDefault();
+    
     let date=startDate.getDate();
     let month=startDate.getMonth()+1;
     let year=startDate.getFullYear();
@@ -43,10 +44,12 @@ const Header = () => {
   
   useEffect(()=>{
     let date=startDate.getDate();
+    let yesterday=startDate.getDate()-1;
     let month=startDate.getMonth()+1;
     let year=startDate.getFullYear();
-    let now=year+"-"+month+"-"+date;
-    dispatch(fetchNewsData({input:"台灣",now:now}));
+    let now =year+"-"+month+"-"+date;
+    let before=year+"-"+month+"-"+yesterday;
+    dispatch(fetchNewsData({input:"台灣",now:now,before:before}));
     dispatch(dataAction.initialReducer());
     
   },[])

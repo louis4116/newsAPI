@@ -10,7 +10,7 @@ const Login = () => {
     const submitHanlder=({email,password})=>{
         loginAccount({email:email,password:password})
         .then(()=>navigate("/"))
-        .catch((e)=>alert(e))
+        .catch((e)=>console.log(e))
     };
     
   return (
